@@ -22,32 +22,32 @@ public class MovieController {
 	private MovieServiceLayer movieService ;
 	
 	@GetMapping("/api/movies")
-	public List<Movies> getAllMovies(){
+	public List<MovieDTO> getAllMovies(){
 		return movieService.getAllMovies();
 	}
 	
 	@GetMapping("/api/movies/byId")
-	public Movies getById(@RequestParam int id) {
+	public MovieDTO getById(@RequestParam int id) {
 		return movieService.getMovieById(id);
 	}
 	
 	@GetMapping("/api/movies/available")
-	public List<Movies> getAvailableMovie(@RequestParam MovieStatus movieStatus){
+	public List<MovieDTO> getAvailableMovie(@RequestParam MovieStatus movieStatus){
 		return movieService.getAvailableMovie(movieStatus);
 	}
 	
 	@GetMapping("/api/movies/name")
-	public List<Movies> getMovieByName(@RequestParam String movieName){
+	public List<MovieDTO> getMovieByName(@RequestParam String movieName){
 		return movieService.getMovieByName(movieName);
 	}
 	
 	@PostMapping("/api/movies")
-	public Movies addMovieApi(@RequestBody Movies movie) {
+	public MovieDTO addMovieApi(@RequestBody MovieDTO movie) {
 		return movieService.addMovie(movie);
 	}
 	
 	@PutMapping("/api/movies")
-	public Movies updateById(@RequestParam int id,@RequestBody Movies movie) {
+	public MovieDTO updateById(@RequestParam int id,@RequestBody MovieDTO movie) {
 		return movieService.updateMovieById(id,movie);
 	}
 	

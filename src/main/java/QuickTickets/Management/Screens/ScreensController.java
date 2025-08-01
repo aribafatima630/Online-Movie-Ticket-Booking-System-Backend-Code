@@ -16,21 +16,21 @@ public class ScreensController {
 	private ScreenServiceLayer screenService;
 	
 	@GetMapping("/api/screens")
-	public List<Screens> getAllScreens(){
+	public List<ScreenDTO> getAllScreens(){
 		
 		return screenService.getAllScreens();
 		
 	}
 	
 	@GetMapping("/api/theaters/screens")
-	public List<Screens> getScreensByTheaterId(@RequestParam int theaterId){
+	public List<ScreenDTO> getScreensByTheaterId(@RequestParam int theaterId){
 		
 		return screenService.getScreenByTheaterId(theaterId);
 		
 	}
 	
 	@PostMapping("/api/theaters/screens")
-	public Screens addScreenByTheaterId(@RequestParam int id, @RequestBody Screens screen) {
+	public ScreenDTO addScreenByTheaterId(@RequestParam int id, @RequestBody ScreenDTO screen) {
 		
 		return screenService.addScreenByTheaterId(id, screen);
 		

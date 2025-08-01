@@ -18,33 +18,33 @@ public class ShowController {
 	private ShowsServiceLayer showsService;
 	
 	@GetMapping("/api/shows")
-	public List<Shows> getAllShows(){
-		return showsService.getAllShows();
+	public List<ShowDTO> getAllShows(){
+		return showsService.getAllShow();
 	}
 	
 	@GetMapping("/api/shows/byId")
-	public Shows getShowById(@RequestParam int id) {
-		return showsService.getShowById(id);
+	public ShowDTO getShowById(@RequestParam int showId) {
+		return showsService.getShowById(showId);
 	}
 	
 	@PostMapping("/api/shows")
-	public Shows addShow(@RequestParam int screenId, @RequestBody Shows show) {
+	public ShowDTO addShow(@RequestParam int screenId, @RequestBody ShowDTO show) {
 		return showsService.addShow(screenId,show);
 	}
 	
 	@PutMapping("/api/shows")
-	public Shows updateShow(@RequestParam int id,@RequestBody Shows updatedShow) {
+	public ShowDTO updateShow(@RequestParam int id,@RequestBody ShowDTO updatedShow) {
 		return showsService.updateShow(id, updatedShow);
 	}
 	
 	@DeleteMapping("/api/shows")
-	public String deleteShow(@RequestParam int id) {
-		return showsService.deleteShow(id);
+	public String deleteShow(@RequestParam int showId) {
+		return showsService.deleteShow(showId);
 	}
 	
-	@GetMapping("/api/shows/byScreenId")
-	public Shows getShowByScreenId(@RequestParam int screenId) {
-		return showsService.getShowByScreenId(screenId);
-	}
+//	@GetMapping("/api/shows/byScreenId")
+//	public Shows getShowByScreenId(@RequestParam int screenId) {
+//		return showsService.getShowByScreenId(screenId);
+//	}
 
 }
