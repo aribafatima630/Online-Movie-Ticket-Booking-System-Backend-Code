@@ -22,6 +22,11 @@ public class ScreensController {
 		
 	}
 	
+	@GetMapping("/api/screensById")
+	public ScreenDTO getScreenById(@RequestParam int screenId) {
+		return screenService.getScreenById(screenId);
+	}
+	
 	@GetMapping("/api/theaters/screens")
 	public List<ScreenDTO> getScreensByTheaterId(@RequestParam int theaterId){
 		

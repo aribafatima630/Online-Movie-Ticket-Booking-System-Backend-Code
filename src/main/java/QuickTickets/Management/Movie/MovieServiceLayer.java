@@ -51,8 +51,12 @@ public class MovieServiceLayer {
         Movies movie = new Movies();
         movie.setMovieId(dto.getMovieId());
         movie.setMovieName(dto.getMovieName());
-        movie.setMovieStatus(MovieStatus.valueOf(dto.getMovieStatus()));
-        movie.setMovieType(MovieType.valueOf(dto.getMovieType()));
+        movie.setMovieStatus(dto.getMovieStatus() != null ?
+        	    MovieStatus.valueOf(dto.getMovieStatus()) :
+        	    MovieStatus.Available); // Default
+        movie.setMovieType(dto.getMovieType() != null ?
+        		  MovieType.valueOf(dto.getMovieType()) :
+        	      MovieType.Hindi);
         movie.setDescription(dto.getDescription());
         movie.setPrice(dto.getPrice());
         movie.setImage(dto.getImage());
@@ -76,6 +80,7 @@ public class MovieServiceLayer {
         return movie;
     }
 
+    @Transactional
     public List<MovieDTO> getAllMovies() {
         return movieRepository.findAll().stream()
             .map(this::convertToDTO)

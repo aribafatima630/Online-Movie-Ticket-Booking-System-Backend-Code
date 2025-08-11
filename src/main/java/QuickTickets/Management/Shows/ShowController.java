@@ -22,29 +22,10 @@ public class ShowController {
 		return showsService.getAllShow();
 	}
 	
-	@GetMapping("/api/shows/byId")
-	public ShowDTO getShowById(@RequestParam int showId) {
-		return showsService.getShowById(showId);
-	}
-	
 	@PostMapping("/api/shows")
-	public ShowDTO addShow(@RequestParam int screenId, @RequestBody ShowDTO show) {
-		return showsService.addShow(screenId,show);
+	public ShowDTO addShow(@RequestBody ShowDTO show) {
+		return showsService.addShow(show);
 	}
 	
-	@PutMapping("/api/shows")
-	public ShowDTO updateShow(@RequestParam int id,@RequestBody ShowDTO updatedShow) {
-		return showsService.updateShow(id, updatedShow);
-	}
-	
-	@DeleteMapping("/api/shows")
-	public String deleteShow(@RequestParam int showId) {
-		return showsService.deleteShow(showId);
-	}
-	
-//	@GetMapping("/api/shows/byScreenId")
-//	public Shows getShowByScreenId(@RequestParam int screenId) {
-//		return showsService.getShowByScreenId(screenId);
-//	}
 
 }

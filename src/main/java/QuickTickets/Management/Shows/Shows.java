@@ -29,6 +29,7 @@ public class Shows {
 	private int showId;
 	
 	@ManyToOne
+	@JoinColumn(name = "movie_movie_id",referencedColumnName="movie_id")
 	private Movies movie;
 	
 	@OneToOne

@@ -4,54 +4,62 @@ import java.util.List;
 
 import QuickTickets.Management.Movie.MovieDTO;
 import QuickTickets.Management.Screens.ScreenDTO;
+import QuickTickets.Management.TimeSlot.TimeSlot;
 import QuickTickets.Management.TimeSlot.TimeSlotDTO;
 
 public class ShowDTO {
-    private int showId;
-    private MovieDTO movie;
-    private ScreenDTO screen;
-    private List<TimeSlotDTO> timeSlot;
+	
+	private int showId;
+	private int movieId;
+	private int screenId;
+	private List<TimeSlot> timeSlot;
+	
+	public ShowDTO() {}
+	
+	public ShowDTO(int showId, int movieId, int screenId, List<TimeSlot> timeSlot) {
+		this.showId = showId;
+		this.movieId = movieId;
+		this.screenId = screenId;
+		this.timeSlot = timeSlot;
+		
+	}
 
-    // Constructors
-    public ShowDTO() {}
+	public int getShowId() {
+		return showId;
+	}
 
-    public ShowDTO(int showId, MovieDTO movie, ScreenDTO screen, List<TimeSlotDTO> timeSlot) {
-        this.showId = showId;
-        this.movie = movie;
-        this.screen = screen;
-        this.timeSlot = timeSlot;
-    }
+	public void setShowId(int showId) {
+		this.showId = showId;
+	}
 
-    // Getters and Setters
-    public int getShowId() {
-        return showId;
-    }
+	public int getMovieId() {
+		return movieId;
+	}
 
-    public void setShowId(int showId) {
-        this.showId = showId;
-    }
+	public void setMovieId(int movieId) {
+		this.movieId = movieId;
+	}
 
-    public MovieDTO getMovie() {
-        return movie;
-    }
+	public int getScreenId() {
+		return screenId;
+	}
 
-    public void setMovie(MovieDTO movie) {
-        this.movie = movie;
-    }
+	public void setScreenId(int screenId) {
+		this.screenId = screenId;
+	}
 
-    public ScreenDTO getScreen() {
-        return screen;
-    }
+	public List<TimeSlot> getTimeSlot() {
+		return timeSlot;
+	}
 
-    public void setScreen(ScreenDTO screen) {
-        this.screen = screen;
-    }
+	public void setTimeSlot(List<TimeSlot> timeSlot) {
+		this.timeSlot = timeSlot;
+	}
 
-    public List<TimeSlotDTO> getTimeSlot() {
-        return timeSlot;
-    }
-
-    public void setTimeSlot(List<TimeSlotDTO> timeSlot) {
-        this.timeSlot = timeSlot;
-    }
+	@Override
+	public String toString() {
+		return "ShowDTO [showId=" + showId + ", movieId=" + movieId + ", screenId=" + screenId + ", timeSlot="
+				+ timeSlot + "]";
+	}
+	
 }

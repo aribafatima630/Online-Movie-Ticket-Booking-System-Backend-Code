@@ -25,6 +25,7 @@ public class ScreenServiceLayer {
         dto.setScreenName(screen.getScreenName());
         dto.setTotalSeat(screen.getTotalSeat());
         dto.setTheaterId(screen.getTheater().getTheaterId());
+        dto.setTheaterName(screen.getTheater().getTheaterName());
         return dto;
     }
 
@@ -47,6 +48,12 @@ public class ScreenServiceLayer {
             .stream()
             .map(this::convertToDTO)
             .collect(Collectors.toList());
+    }
+    
+    public ScreenDTO getScreenById(int screenId) {
+    	Screens screen = screenRepository.findById(screenId)
+    									.orElseThrow(()-> new RuntimeException("Screen Not Found"));
+    	return convertToDTO(screen);
     }
 
     public List<ScreenDTO> getScreenByTheaterId(int theaterId) {
