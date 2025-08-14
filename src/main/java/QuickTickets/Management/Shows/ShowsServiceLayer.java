@@ -75,6 +75,15 @@ public class ShowsServiceLayer {
 		return showDTOs;
 	}
 	
+	@Transactional
+	public ShowDTO getShowByScreenId(int screenId) {
+		Shows show = showRepository.findByScreensScreenId(screenId);
+		if (show == null) {
+	        throw new RuntimeException("Show not found for screenId: " + screenId);
+	    }
+		return convertToDto(show);
+	}
+	
 	public ShowDTO addShow(ShowDTO dto) {
 		Movies movie = movieRepository.findById(dto.getMovieId())
 					  				  .orElseThrow(() -> new RuntimeException ("Movie Not Found"));

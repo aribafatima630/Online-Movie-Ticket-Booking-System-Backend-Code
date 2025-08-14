@@ -22,6 +22,11 @@ public class ShowController {
 		return showsService.getAllShow();
 	}
 	
+	@GetMapping("/api/shows/ByScreenId")
+	public ShowDTO getShowByScreenId(@RequestParam int screenId) {
+		return showsService.getShowByScreenId(screenId);
+	}
+	
 	@PostMapping("/api/shows")
 	public ShowDTO addShow(@RequestBody ShowDTO show) {
 		return showsService.addShow(show);
