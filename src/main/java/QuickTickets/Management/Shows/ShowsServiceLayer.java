@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import QuickTickets.Management.Movie.MovieDTO;
 import QuickTickets.Management.Movie.MovieRepository;
@@ -79,7 +81,7 @@ public class ShowsServiceLayer {
 	public ShowDTO getShowByScreenId(int screenId) {
 		Shows show = showRepository.findByScreensScreenId(screenId);
 		if (show == null) {
-	        throw new RuntimeException("Show not found for screenId: " + screenId);
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Show not found for screenId: " + screenId);
 	    }
 		return convertToDto(show);
 	}

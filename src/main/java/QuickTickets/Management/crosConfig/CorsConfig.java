@@ -16,7 +16,7 @@ public class CorsConfig {
 			@Override
 			public void addCorsMappings(CorsRegistry registery) {
 				  registery.addMapping("/**") 
-                 .allowedOrigins("http://localhost:3000","http://localhost:3001") 
+                 .allowedOrigins("http://localhost:3000","http://localhost:3001","https://quicktickets100.netlify.app") 
                  .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") 
                  .allowedHeaders("*") 
                  .allowCredentials(true);
